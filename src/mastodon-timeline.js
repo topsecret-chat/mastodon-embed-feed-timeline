@@ -9,16 +9,16 @@ window.addEventListener("load", () => {
     container_body_id: "mt-body",
 
     // Preferred color theme: 'light', 'dark' or 'auto'. Default: auto
-    default_theme: "auto",
+    default_theme: "dark",
 
     // Your Mastodon instance
-    instance_url: "https://mastodon.online",
+    instance_url: "https://mastodon.social",
 
     // Choose type of toots to show in the timeline: 'local', 'profile', 'hashtag'. Default: local
-    timeline_type: "local",
+    timeline_type: "profile",
 
     // Your user ID on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
-    user_id: "",
+    user_id: "110669312995780781",
 
     // Your user name on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
     profile_name: "",
@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
     hashtag_name: "",
 
     // Maximum amount of toots to get. Default: 20
-    toots_limit: "20",
+    toots_limit: "100",
 
     // Hide unlisted toots. Default: don't hide
     hide_unlisted: false,
@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
     text_max_lines: "0",
 
     // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
-    link_see_more: "See more posts at Mastodon",
+    link_see_more: null,
   });
 });
 
@@ -223,7 +223,7 @@ MastodonApi.prototype.getToots = function () {
         '<div class="mt-user">' +
         '<a href="' +
         status_.reblog.account.url +
-        '" rel="nofollow noopener noreferrer" target="_blank">' +
+        '" rel="nofollow noopener noreferrer" target="_blank">@' +
         status_.reblog.account.username +
         '<span class="visually-hidden"> post</span>' +
         "</a>" +
@@ -254,7 +254,7 @@ MastodonApi.prototype.getToots = function () {
         '<div class="mt-user">' +
         '<a href="' +
         status_.account.url +
-        '" rel="nofollow noopener noreferrer" target="_blank">' +
+        '" rel="nofollow noopener noreferrer" target="_blank">@' +
         status_.account.username +
         '<span class="visually-hidden"> post</span>' +
         "</a>" +

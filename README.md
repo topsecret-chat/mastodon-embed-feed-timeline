@@ -4,6 +4,9 @@
 
 Embed a mastodon feed timeline in your page, only with a CSS and JS file.
 
+Forked from: 
+<https://gitlab.com/idotj/mastodon-embed-feed-timeline/>
+
 Working version running at:
 <https://www.idotj.com>
 

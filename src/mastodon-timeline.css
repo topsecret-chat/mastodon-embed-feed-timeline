@@ -14,16 +14,18 @@ html[data-theme="light"] {
   --bg-hover-color: #d9e1e8;
   --line-gray-color: #c0cdd9;
   --content-text: #000;
+  --user-text: #000;
   --link-color: #3a3bff;
   --error-text-color: #8b0000;
 }
 html[data-theme="dark"] {
-  --bg-color: #282c37;
-  --bg-hover-color: #313543;
-  --line-gray-color: #393f4f;
-  --content-text: #fff;
-  --link-color: #8c8dff;
-  --error-text-color: #fe6c6c;
+  --bg-color: #0f2537;
+  --bg-hover-color: #20374c;
+  --line-gray-color: #abb6c2;
+  --content-text: #ebebeb;
+  --user-text: #abb6c2;
+  --link-color: #4c9be8;
+  --error-text-color: #d9534f;
 }
 
 /* Main container */
@@ -121,7 +123,7 @@ html[data-theme="dark"] {
   font-weight: 600;
 }
 .mt-user > a {
-  color: var(--content-text) !important;
+  color: var(--user-text) !important;
 }
 
 /* Text */

@@ -43,7 +43,14 @@ Great, you have a Mastodon timeline running in your page.
 
 ### Setup
 
-Edit the the JS file _mastodon-timeline.js_ and at the beginning find these two lines:
+The easiest way is to set all parameters via the respective HTML tags against the `mt-class` node.
+For example, you can set the dark them by adding `mt-default-theme="dark"`:
+
+```html
+<div class="mt-class" mt-default-theme="dark">
+```
+
+Otherwise, edit the the JS file _mastodon-timeline.js_ and at the beginning find these two lines:
 
 ```javascript
     instance_url:   'Your Mastodon instance',

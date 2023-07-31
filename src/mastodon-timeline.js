@@ -59,10 +59,10 @@ let MastodonApi = function (params_) {
   this.HASHTAG_NAME = $('.mt-timeline').attr('mt-hashtag-name') || params_.hashtag_name;
   this.TEXT_MAX_LINES = $('.mt-timeline').attr('mt-text-max-lines') || params_.text_max_lines;
   this.LINK_SEE_MORE = $('.mt-timeline').attr('mt-link-see-more') || params_.link_see_more;
-  this.HIDE_UNLISTED = [true, TRUE, 1].includes($('.mt-timeline').attr('mt-hide-unlisted')) ? true : params_.hide_unlisted;
-  this.HIDE_REBLOG = [true, TRUE, 1].includes($('.mt-timeline').attr('mt-hide-reblog')) ? true : params_.hide_reblog;
-  this.HIDE_REPLIES = [true, TRUE, 1].includes($('.mt-timeline').attr('mt-hide-replies')) ? true : params_.hide_replies;
-  this.MARKDOWN_BLOCKQUOTE = [true, TRUE, 1].includes($('.mt-timeline').attr('mt-markdown-blockquote')) ? true : params_.markdown_blockquote;
+  this.HIDE_UNLISTED = ['true', 'TRUE', 1].includes($('.mt-timeline').attr('mt-hide-unlisted')) ? true : params_.hide_unlisted;
+  this.HIDE_REBLOG = ['true', 'TRUE', 1].includes($('.mt-timeline').attr('mt-hide-reblog')) ? true : params_.hide_reblog;
+  this.HIDE_REPLIES = ['true', 'TRUE', 1].includes($('.mt-timeline').attr('mt-hide-replies')) ? true : params_.hide_replies;
+  this.MARKDOWN_BLOCKQUOTE = ['true', 'TRUE', 1].includes($('.mt-timeline').attr('mt-markdown-blockquote')) ? true : params_.markdown_blockquote;
   this.PROFILE_NAME = this.USER_ID ? params_.profile_name : "";
 
   // Target selector

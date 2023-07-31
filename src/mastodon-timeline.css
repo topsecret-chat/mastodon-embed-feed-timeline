@@ -30,7 +30,7 @@ html[data-theme="dark"] {
 
 /* Main container */
 .mt-timeline {
-  height: 100%;
+  height: 90vh;
   overflow-y: auto;
   position: relative;
   background: var(--bg-color);
@@ -64,7 +64,7 @@ html[data-theme="dark"] {
 }
 
 .mt-body {
-  padding: 1rem 1.5rem;
+  padding: 1rem 0rem;
   white-space: pre-wrap;
   word-wrap: break-word;
 }

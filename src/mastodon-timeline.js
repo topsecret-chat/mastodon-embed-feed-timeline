@@ -1,4 +1,4 @@
-// Mastodon embed feed timeline v3.7.2
+// Mastodon embed feed timeline
 // More info at:
 // https://gitlab.com/idotj/mastodon-embed-feed-timeline
 
@@ -9,16 +9,16 @@ window.addEventListener("load", () => {
     container_body_id: "mt-body",
 
     // Preferred color theme: 'light', 'dark' or 'auto'. Default: auto
-    default_theme: "dark",
+    default_theme: "auto",
 
     // Your Mastodon instance
-    instance_url: "https://mastodon.social",
+    instance_url: "",
 
     // Choose type of toots to show in the timeline: 'local', 'profile', 'hashtag'. Default: local
-    timeline_type: "profile",
+    timeline_type: "local",
 
     // Your user ID on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
-    user_id: "110669312995780781",
+    user_id: "",
 
     // Your user name on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
     profile_name: "",
@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
     hashtag_name: "",
 
     // Maximum amount of toots to get. Default: 20
-    toots_limit: "100",
+    toots_limit: "20",
 
     // Hide unlisted toots. Default: don't hide
     hide_unlisted: false,
@@ -51,27 +51,19 @@ window.addEventListener("load", () => {
 
 let MastodonApi = function (params_) {
   // Endpoint access settings / default values
-  this.DEFAULT_THEME = params_.default_theme || "auto";
-  this.INSTANCE_URL = params_.instance_url;
-  this.USER_ID = params_.user_id || "";
+  this.DEFAULT_THEME = $('.mt-timeline').attr('mt-default-theme') || params_.default_theme;
+  this.INSTANCE_URL = $('.mt-timeline').attr('mt-instance-url') || params_.instance_url;
+  this.USER_ID = $('.mt-timeline').attr('mt-user-id') || params_.user_id;
+  this.TIMELINE_TYPE = $('.mt-timeline').attr('mt-timeline-type') || params_.timeline_type;
+  this.TOOTS_LIMIT = $('.mt-timeline').attr('mt-toots-limit') || params_.toots_limit;
+  this.HASHTAG_NAME = $('.mt-timeline').attr('mt-hashtag-name') || params_.hashtag_name;
+  this.TEXT_MAX_LINES = $('.mt-timeline').attr('mt-text-max-lines') || params_.text_max_lines;
+  this.LINK_SEE_MORE = $('.mt-timeline').attr('mt-link-see-more') || params_.link_see_more;
+  this.HIDE_UNLISTED = $('.mt-timeline').attr('mt-hide-unlisted').toLowerCase() == 'true' ? true : params_.hide_unlisted;
+  this.HIDE_REBLOG = $('.mt-timeline').attr('mt-hide-reblog').toLowerCase() == 'true' ? true : params_.hide_reblog;
+  this.HIDE_REPLIES = $('.mt-timeline').attr('mt-hide-replies').toLowerCase() == 'true' ? true : params_.hide_replies;
+  this.MARKDOWN_BLOCKQUOTE = $('.mt-timeline').attr('mt-markdown-blockquote').toLowerCase() == 'true' ? true : params_.markdown_blockquote;
   this.PROFILE_NAME = this.USER_ID ? params_.profile_name : "";
-  this.TIMELINE_TYPE = params_.timeline_type || "local";
-  this.HASHTAG_NAME = params_.hashtag_name || "";
-  this.TOOTS_LIMIT = params_.toots_limit || "20";
-  this.HIDE_UNLISTED =
-    typeof params_.hide_unlisted !== "undefined"
-      ? params_.hide_unlisted
-      : false;
-  this.HIDE_REBLOG =
-    typeof params_.hide_reblog !== "undefined" ? params_.hide_reblog : false;
-  this.HIDE_REPLIES =
-    typeof params_.hide_replies !== "undefined" ? params_.hide_replies : false;
-  this.MARKDOWN_BLOCKQUOTE =
-    typeof params_.markdown_blockquote !== "undefined"
-      ? params_.markdown_blockquote
-      : false;
-  this.TEXT_MAX_LINES = params_.text_max_lines || "0";
-  this.LINK_SEE_MORE = params_.link_see_more;
 
   // Target selector
   this.mtBodyContainer = document.getElementById(params_.container_body_id);
